@@ -115,6 +115,35 @@ const rawJobs = [
                     </div>
                 `;
             });}
+ container.innerHTML = html;
+            updateStats();
+            updateTabStyles();
+            document.querySelectorAll('.job-card, [data-id]').forEach(card => {
+                const jobId = card.dataset.id;
+                // Delete button
+                const deleteBtn = card.querySelector('.delete-btn');
+                if (deleteBtn) {
+                    deleteBtn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        jobs = jobs.filter(j => j.id !== jobId);
+                        render();
+                    });
+                }
+                // Interview button
+                const interviewBtn = card.querySelector('.btn-interview');
+                if (interviewBtn) {
+                    interviewBtn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        const targetJob = jobs.find(j => j.id === jobId);
+                        if (!targetJob) return;
+                        if (targetJob.status === 'interview') {
+                            targetJob.status = null;
+                        } else {
+                            targetJob.status = 'interview';
+                        }
+                        render();
+                    });
+                }
 
             
         render();
