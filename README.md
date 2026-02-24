@@ -2,7 +2,7 @@
 # 1. What is the difference between getElementById, getElementsByClassName, and querySelector / querySelectorAll?
 # Ans:getElementById: Finds one specific item by its unique ID. It is the fastest way.
 # getElementsByClassName: Finds all items with a certain class and gives you a list (HTMLCollection).
-# ySelector: Uses CSS style (like #id or .class) to find the first match.
+# queryySelector: Uses CSS style (like #id or .class) to find the first match.
 # querySelectorAlle to find all matches and gives you a list (NodeList).
 
 # 2. How do you create and insert a new element into the DOM?
