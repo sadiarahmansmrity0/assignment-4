@@ -60,7 +60,7 @@ const rawJobs = [
             if (filtered.length === 0) {
                 container.innerHTML = `
                     <div class="col-span-full text-center py-16">
-                        <i class="fas fa-briefcase text-5xl text-gray-300 mb-4"></i>
+                        <img src="images/jobs.png"  alt="briefcase" class="w-16 h-16 opacity-50 mb-4 mx-auto">
                         <h3 class="text-xl font-semibold text-gray-600 mb-2">No jobs available</h3>
                         <p class="text-gray-500">Check back soon for new opportunities ✨</p>
                     </div>
@@ -114,7 +114,7 @@ const rawJobs = [
                         </div>
                     </div>
                 `;
-            });}
+            });
  container.innerHTML = html;
             updateStats();
             updateTabStyles();
@@ -129,7 +129,7 @@ const rawJobs = [
                         render();
                     });
                 }
-                // Interview button
+
                 const interviewBtn = card.querySelector('.btn-interview');
                 if (interviewBtn) {
                     interviewBtn.addEventListener('click', (e) => {
@@ -144,6 +144,37 @@ const rawJobs = [
                         render();
                     });
                 }
+                    // Reject button
+                const rejectBtn = card.querySelector('.btn-reject');
+                if (rejectBtn) {
+                    rejectBtn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        const targetJob = jobs.find(j => j.id === jobId);
+                        if (!targetJob) return;
 
-            
+                        // Toggle reject status
+                        if (targetJob.status === 'rejected') {
+                            targetJob.status = null;
+                        } else {
+                            targetJob.status = 'rejected';
+                        }
+                        render();
+                    });
+                }
+            });
+        }
+        // Tab switching
+        tabAll.addEventListener('click', () => {
+            currentTab = 'all';
+            render();
+        });
+        tabInterview.addEventListener('click', () => {
+            currentTab = 'interview';
+            render();
+        });
+        tabRejected.addEventListener('click', () => {
+            currentTab = 'rejected';
+            render();
+        });
+        // Initial render
         render();
