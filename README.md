@@ -17,6 +17,6 @@
 # 4. What is Event Delegation in JavaScript? Why is it useful?
 # Ans:stead of putting a listener on every single button (which wastes memory), you put one listener on the parent. When a button is clicked, the parent "catches" the event and handles it. It’s useful because it’s faster and works for new buttons added later
 # 5. What is the difference between preventDefault() and stopPropagation() methods?
-# ans: Ans: preventDefault(): Stops the browser from doing its default job(like stopping a link from opening or a form from refreshing).
+# Ans: preventDefault(): Stops the browser from doing its default job(like stopping a link from opening or a form from refreshing).
 # stopPropagation(): Stops the event from bubbling up. It tells the event: "Stop here! Don't tell my parent elements that I was clicked."
 
